@@ -4,37 +4,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Number Guesser</title>
+    <title>Task List</title>
     <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
     rel="stylesheet"
     integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
     crossorigin="anonymous">
-    </head>
-<body class="bg-dark">
-    <div class="container">
-        <div class="card mt-4">
-            <div id="card-body" class="card-body text-center">
-                <h1>Number Guesser</h1>
-                <caption>This is a small number guessing game, it will
-                    teach you about the DOM
-                </caption>
-                <h2></h2>Guess a number between 0 and 10</h2>
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Enter your guess" aria-label="Username" aria-describedby="basic-addon1">
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon1">Submit</button>
-                    <div class="alert alert-success" role="alert">
-                        <h3 class="alert-heading">Match!</h4>
-                    </div>
-                    <div class="alert alert-failure" role="alert">
-                        <h4 class="alert-heading">Failure!</h4>
-                    </div>
-                  </div>
-                    </div>
-                </div>
-                </div>
-            </div>
-        </div>
+
+</head>
+<body>
+    
+    <div class="container mt-4" >
+        <p class="text-center">Task List</p>
+
+
+        <p class="text-center">Our simple task list</p>
+
+        <form id="form">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Task" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button class="btn btn-outline-secondary" type="button" id="button-addon2">+</button>
+          </div>
+          
+        </form>
+        <table class="table mt-5">
+            <thead>
+                <tr>
+                    <th>Task</th>
+                    <th>Completed</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+
+            </tbody>
+        </table>
     </div>
     <script src="main.js"></script>
 </body>

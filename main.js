@@ -1,21 +1,79 @@
-const numberInput = document.getElementById('number-input')
-const buttonInput = document.getElementById('button')
-const cardBody = document.getElementById('card-body')
+class Task {
+    constructor(task, completed, actions) {
+        this.task = task;
+        this.completed = completed;
+        this.actions = actions;
+    }
+}
 
-
-buttonInput.addEventListener('click', (event) => {
-    const number =  numberInput.value;
-
-    let random = Math.floor(math.random()*10)
-    if (random == number) {
-        console.log('match')
+class UserInterface {
+    constructor() {
+        this.taskInput = document.getElementById('task-input');
+        this.completedInput = document.getElementById('completed-input');
+        this.actions = document.getElementById('actions-input');
+        this.tableBody = document.getElementById('table-body');
+        this.form = document.getElementById('form');
+        this.tasks = [];
     }
 
-    const resultDiv = document.createElement('div');
-    resultDiv.innerHTML = random;
-    resultDiv.classList.add('alert');
-    resultDiv.classList.add('alert-primary');
-    resultDiv.classList.add('mt-4');
+    bindEventListeners() {
+    this.form.addEventListener('+', (e) => this.onFromPlus(e));
+    }
 
-    cardBody.append(resultDiv);
-});
+    onFromPlus(event) {
+    event.preventDefault();
+
+    const task = new Task(
+    this.taskInput.value,
+    this.completedInput.value,
+    this.actionsInput.value,
+    );
+
+    this.tasks.push(task);
+    this.populateTasksTable();
+
+    this.taskInput.value = '';
+    this.completedInput.value = '';
+    this.actionsInput.value = '';
+    }
+
+    populateTasksTable() {
+    this.tableBody.innerHTML = '';
+    for (const task of this.tasks) {
+        const row = document.createElement('tr');
+
+        const taskCell = document.createElement('td');
+        const completedCell = document.createElement('td');
+        const actionsCell = document.createElement('td');
+        const completeButton = document.createElement('button');
+
+        taskCell.innerHTML = task.task;
+        completedCell.innerHTML = task.completed;
+        actionsCell.innerHTML = task.actions;
+        completeButton.innerHTML = 'C';
+
+
+        completeButton.addEventListener('click', (e) => this.onCompleteButtonClick(task));
+        completedCell.append(completeButton);
+
+        row.append(taskCell);
+        row.append(completedCell);
+        row.append(actionsCell);
+        this.tableBody.append(row);
+    }
+
+
+
+    }
+
+onCompleteButtonClick(taskToComplete) {
+    this.tasks = this.tasks.filter((task) => 
+    
+    });
+    this.populateTasksTable();
+
+}
+
+
+const.ui = new UserInterface();
+ui.bindEventListeners();
